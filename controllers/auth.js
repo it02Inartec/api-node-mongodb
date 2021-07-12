@@ -33,7 +33,7 @@ const createUser = async (request, _response = response) => {
                 msg: 'El email ya existe en la base de datos'
             });
         }
-        
+
         // le pasamos los valores ingresados
         user = new User( request.body );
 
@@ -54,7 +54,7 @@ const createUser = async (request, _response = response) => {
             name: user.name,
             token
         });
-        
+
     } catch (error) {
         console.log(error);
         // se envía fallido
@@ -63,7 +63,7 @@ const createUser = async (request, _response = response) => {
             msg: 'Por favor, consulte a su administrador'
         });
     }
-    
+
 };
 
 const loginUser = async (request, response) => {
@@ -77,7 +77,7 @@ const loginUser = async (request, response) => {
 
         // si devuelve null
         if ( !user ) {
-            return res.status(400).json({
+            return response.status(209).json({
                 ok: false,
                 msg: 'El email no existe en la base de datos'
             });
@@ -104,7 +104,7 @@ const loginUser = async (request, response) => {
             name: user.name,
             token
         })
-        
+
     } catch (error) {
         console.log(error);
         // se envía fallido
